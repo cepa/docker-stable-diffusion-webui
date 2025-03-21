@@ -9,6 +9,7 @@ services:
       - ${STABLE_DIFFUSION_PORT}:7860
     volumes:
       - ${STABLE_DIFFUSION_MODELS_VOLUME}:/srv/stable-diffusion-webui/models
+      - ${STABLE_DIFFUSION_OUTPUTS_VOLUME}:/srv/stable-diffusion-webui/outputs
     deploy:
       resources:
         reservations:
