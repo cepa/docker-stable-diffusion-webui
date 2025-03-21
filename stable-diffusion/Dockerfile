@@ -25,4 +25,3 @@ WORKDIR /srv/stable-diffusion-webui
 VOLUME /srv/stable-diffusion-webui/models
 USER stable
 CMD ./webui.sh --listen
-#CMD exec /bin/sh -c "trap : TERM INT; (while true; do sleep 1000; done) & wait"
