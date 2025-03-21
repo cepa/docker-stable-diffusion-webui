@@ -1,0 +1,23 @@
+services:
+  stable-diffusion:
+    container_name: stable-diffusion
+    build: ./stable-diffusion
+    restart: unless-stopped
+    networks:
+      - stable-diffusion-network
+    ports:
+      - ${STABLE_DIFFUSION_PORT}:7860
+    volumes:
+      - ${STABLE_DIFFUSION_MODELS_VOLUME}:/srv/stable-diffusion-webui/models
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+networks:
+  stable-diffusion-network:
+    name: stable-diffusion-network
+    external: false
